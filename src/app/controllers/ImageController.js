@@ -29,6 +29,17 @@ class ImageController {
       return res.status(400).send({ erro: error });
     }
   }
+
+  async destroy(req, res) {
+    const { id } = req.params;
+    try {
+      const image = await Image.findByIdAndRemove(id);
+
+      return res.send(image);
+    } catch (error) {
+      return res.status(400).send({ erro: error });
+    }
+  }
 }
 
 export default new ImageController();

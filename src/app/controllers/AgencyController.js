@@ -41,5 +41,16 @@ class AgencyController {
       return res.status(400).send({ erro: error });
     }
   }
+
+  async destroy(req, res) {
+    const { id } = req.params;
+    try {
+      const agency = await Agency.findByIdAndRemove(id);
+
+      return res.send(agency);
+    } catch (error) {
+      return res.status(400).send({ erro: error });
+    }
+  }
 }
 export default new AgencyController();
