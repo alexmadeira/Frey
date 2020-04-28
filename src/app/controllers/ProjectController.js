@@ -3,18 +3,7 @@ import Project from '../models/Project';
 class ProjectController {
   async index(req, res) {
     try {
-      const project = await Project.find().populate([
-        'logo',
-        'background',
-        'preview',
-        'destaque',
-        'produtoDestaque',
-        'destaqueEsquerda',
-        'destaqueCentro',
-        'destaqueDireita',
-        'nextProject',
-        'agency',
-      ]);
+      const project = await Project.find().populate(['logo', 'agency']);
       return res.send(project);
     } catch (error) {
       return res.status(400).send({ erro: error });
@@ -24,18 +13,7 @@ class ProjectController {
   async show(req, res) {
     const { slug } = req.params;
     try {
-      const project = await Project.findOne({ slug }).populate([
-        'logo',
-        'background',
-        'preview',
-        'destaque',
-        'produtoDestaque',
-        'destaqueEsquerda',
-        'destaqueCentro',
-        'destaqueDireita',
-        'nextProject',
-        'agency',
-      ]);
+      const project = await Project.findOne({ slug }).populate(['agency']);
 
       return res.send(project);
     } catch (error) {

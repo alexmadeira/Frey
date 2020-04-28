@@ -5,23 +5,7 @@ const ImageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  key: {
-    type: String,
-    required: true,
-  },
   name: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String,
-    required: true,
-  },
-  subtype: {
-    type: String,
-    required: true,
-  },
-  contentType: {
     type: String,
     required: true,
   },

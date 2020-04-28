@@ -17,5 +17,7 @@ routes.get('/agency/:id', AgencyController.show);
 routes.put('/agency/:id', AgencyController.update);
 
 routes.post('/image', ImageController.store);
+routes.get('/images', ImageController.index);
+routes.get('/image/:name', ImageController.show);
 
 export default routes;
