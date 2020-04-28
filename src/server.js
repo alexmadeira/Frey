@@ -1,6 +1,10 @@
+import dotenv from 'dotenv';
+
 import app from './app';
 import connectDB from './database';
 
+dotenv.config();
+
 connectDB();
 
-app.listen(3333);
+app.listen(process.env.PORT);
