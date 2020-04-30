@@ -21,6 +21,9 @@ const ProjectSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  preview: {
+    type: String,
+  },
   order: {
     type: Number,
     required: true,
