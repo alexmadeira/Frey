@@ -2,8 +2,9 @@ import Image from '../models/Image';
 
 class ImageController {
   async index(req, res) {
+    const { limit } = req.query;
     try {
-      const images = await Image.find();
+      const images = await Image.find().limit(parseInt(limit, 10));
       return res.send(images);
     } catch (error) {
       return res.status(400).send({ erro: error });

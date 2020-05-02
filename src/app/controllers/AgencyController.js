@@ -2,8 +2,11 @@ import Agency from '../models/Agency';
 
 class AgencyController {
   async index(req, res) {
+    const { limit } = req.query;
     try {
-      const agency = await Agency.find().populate(['logo', 'image']);
+      const agency = await Agency.find()
+        .populate(['logo', 'image'])
+        .limit(parseInt(limit, 10));
       return res.send(agency);
     } catch (error) {
       return res.status(400).send({ erro: error });

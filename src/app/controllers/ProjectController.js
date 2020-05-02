@@ -2,8 +2,11 @@ import Project from '../models/Project';
 
 class ProjectController {
   async index(req, res) {
+    const { limit } = req.query;
     try {
-      const project = await Project.find().populate(['logo', 'agency']);
+      const project = await Project.find()
+        .populate(['logo', 'agency'])
+        .limit(parseInt(limit, 10));
       return res.send(project);
     } catch (error) {
       return res.status(400).send({ erro: error });
